@@ -6,15 +6,21 @@ import { AuthContext } from "../Provider/AuthProvider";
 
 
 const NavBar = () => {
+
+    const { user, logOut } = useContext(AuthContext);
+
     const links = <>
         <NavLink to="/"><img className="w-16 rounded-full mx-auto" src={logo} alt="" /></NavLink>
         <li className="font-bold text-3xl ml-10"><NavLink to="/">Assignments</NavLink></li>
-        <li className="font-bold text-3xl mx-6"><NavLink to="/create">Create Assignment</NavLink></li>
-        <li className="font-bold text-3xl mr-6"><NavLink to="/submit">Submitted Assignment</NavLink></li>
-        <li className="font-bold text-3xl mr-6"><NavLink to="/myassignment">My Assignment</NavLink></li>
+        {user?.email ? <>
+            <li className="font-bold text-3xl mx-6"><NavLink to="/create">Create Assignment</NavLink></li>
+            <li className="font-bold text-3xl mr-6"><NavLink to="/submit">Submitted Assignment</NavLink></li>
+            <li className="font-bold text-3xl mr-6"><NavLink to="/myassignment">My Assignment</NavLink></li>
+        </>
+            : ""
+        }
     </>
 
-    const { user, logOut } = useContext(AuthContext);
     const handleSignOut = () => {
         logOut()
             .then()
