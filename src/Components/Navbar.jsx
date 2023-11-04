@@ -1,25 +1,25 @@
-import { NavLink } from "react-router-dom";
-// import { useContext } from "react";
-// import logo from '../assets/logo.png';
-// import { AuthContext } from "../Provider/AuthProvider";
-// import userDefault from "../assets/user.jpg";
+import { Link, NavLink } from "react-router-dom";
+import { useContext } from "react";
+import logo from '../assets/logo.jpg';
+import userDefault from "../assets/user.jpg";
+import { AuthContext } from "../Provider/AuthProvider";
 
 
 const NavBar = () => {
     const links = <>
-        {/* <NavLink to="/"><img className="w-16 rounded-full mx-auto" src={logo} alt="" /></NavLink> */}
+        <NavLink to="/"><img className="w-16 rounded-full mx-auto" src={logo} alt="" /></NavLink>
         <li className="font-bold text-3xl ml-10"><NavLink to="/">Assignments</NavLink></li>
         <li className="font-bold text-3xl mx-6"><NavLink to="/create">Create Assignment</NavLink></li>
         <li className="font-bold text-3xl mr-6"><NavLink to="/submit">Submitted Assignment</NavLink></li>
         <li className="font-bold text-3xl mr-6"><NavLink to="/myassignment">My Assignment</NavLink></li>
     </>
 
-    // const { user, logOut } = useContext(AuthContext);
-    // const handleSignOut = () => {
-    //     logOut()
-    //         .then()
-    //         .catch()
-    // }
+    const { user, logOut } = useContext(AuthContext);
+    const handleSignOut = () => {
+        logOut()
+            .then()
+            .catch()
+    }
     return (
         <div>
             <div className="flex mx-auto items-center justify-between">
@@ -40,7 +40,7 @@ const NavBar = () => {
                         </ul>
                     </div>
                 </div>
-                {/* <div>
+                <div>
                     {
                         user ?
                             <div>
@@ -57,7 +57,7 @@ const NavBar = () => {
                                 <button className="btn text-3xl font-bold">Login</button>
                             </Link>
                     }
-                </div> */}
+                </div>
             </div>
         </div>
     );
