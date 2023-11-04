@@ -1,7 +1,13 @@
 // import Swal from 'sweetalert2'
 
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
+
 
 const CreateAssignment = () => {
+
+    const { user } = useContext(AuthContext);
+
     const handleAddProduct = event => {
         event.preventDefault();
         const form = event.target;
@@ -12,7 +18,8 @@ const CreateAssignment = () => {
         const image = form.image.value;
         const difficulty = form.difficulty.value;
         const date = form.date.value;
-        const newProduct = { title, description, marks, image, difficulty, date };
+        const email = user.email;
+        const newProduct = { title, description, marks, image, difficulty, date, email };
         console.log(newProduct);
 
         // fetch("https://tech-store-server-42x7j8qao-farhan-novos-projects.vercel.app/product", {
