@@ -15,6 +15,7 @@ import AuthProvider from './Provider/AuthProvider.jsx';
 import Login from './Components/Login.jsx';
 import Register from './Components/Register.jsx';
 import PrivateRoutes from './Components/PrivateRoutes.jsx';
+import AssignmentDetails from './Components/AssignmentDetails.jsx';
 
 
 
@@ -39,6 +40,11 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path: '/details/:id',
+        element: <AssignmentDetails></AssignmentDetails>,
+        loader: () => fetch("http://localhost:5000/assignment")
       }
     ]
   },
