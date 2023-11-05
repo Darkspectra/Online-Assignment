@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 const AssignmentCard = ({ assignment }) => {
+
     const { title, marks, difficulty, image, _id } = assignment;
 
     return (

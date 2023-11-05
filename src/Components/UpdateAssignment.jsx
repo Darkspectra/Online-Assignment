@@ -2,7 +2,7 @@ import Swal from 'sweetalert2'
 
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 
 
 const UpdateAssignment = () => {
@@ -11,6 +11,8 @@ const UpdateAssignment = () => {
     const { title, marks, difficulty, image, _id, description, date, email } = assignments;
 
     const { user } = useContext(AuthContext);
+
+    const navigate = useNavigate();
 
     const handleUpdateAssignment = event => {
         event.preventDefault();
@@ -43,8 +45,10 @@ const UpdateAssignment = () => {
                             icon: 'success',
                             confirmButtonText: 'Cool'
                         })
+                        navigate(location?.state ? location.state : '/')
                     }
                 })
+                
         }
         else{
             Swal.fire({
@@ -53,6 +57,7 @@ const UpdateAssignment = () => {
                 icon: 'error',
                 confirmButtonText: 'Exit'
             })
+            navigate(location?.state ? location.state : '/')
         }
 
 
@@ -91,6 +96,7 @@ const UpdateAssignment = () => {
                                 'Your Assignment has been deleted.',
                                 'success'
                             )
+                            navigate(location?.state ? location.state : '/')
                         }
                     })
             }
@@ -101,6 +107,7 @@ const UpdateAssignment = () => {
                     icon: 'error',
                     confirmButtonText: 'Exit'
                 })
+                navigate(location?.state ? location.state : '/')
             }
         })
 
