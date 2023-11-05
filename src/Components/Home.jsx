@@ -10,7 +10,7 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <h2 className="text-4xl font-bold mx-10">Total Assignments: {assignments.length}</h2>
+            <h2 className="text-4xl font-bold mx-10 my-24 text-center">Total Assignments: {assignments.length}</h2>
             <div className="mx-10 grid grid-cols-3 gap-10">
                 {
                     assignments.map(assignment => <AssignmentCard key={assignment._id} assignment={assignment}></AssignmentCard>)
