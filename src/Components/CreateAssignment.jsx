@@ -8,7 +8,7 @@ const CreateAssignment = () => {
 
     const { user } = useContext(AuthContext);
 
-    const handleAddProduct = event => {
+    const handleAddAssignment = event => {
         event.preventDefault();
         const form = event.target;
 
@@ -19,15 +19,15 @@ const CreateAssignment = () => {
         const difficulty = form.difficulty.value;
         const date = form.date.value;
         const email = user.email;
-        const newProduct = { title, description, marks, image, difficulty, date, email };
-        console.log(newProduct);
+        const newAssignment = { title, description, marks, image, difficulty, date, email };
+        console.log(newAssignment);
 
         fetch("http://localhost:5000/assignment", {
             method: "POST",
             headers: {
                 "content-type": "application/json"
             },
-            body: JSON.stringify(newProduct)
+            body: JSON.stringify(newAssignment)
         })
             .then(res => res.json())
             .then(data => {
@@ -47,7 +47,7 @@ const CreateAssignment = () => {
     return (
         <div className="bg-[#F4F3F0] p-24">
             <h2 className="text-3xl font-extrabold">Create Assignment</h2>
-            <form onSubmit={handleAddProduct}>
+            <form onSubmit={handleAddAssignment}>
                 <div className="">
                     <div className="md:w-full">
                         <p className="text-2xl">Image</p>
