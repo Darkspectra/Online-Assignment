@@ -88,7 +88,7 @@ const UpdateAssignment = () => {
                         if (data.deletedCount > 0) {
                             Swal.fire(
                                 'Deleted!',
-                                'Your Coffee has been deleted.',
+                                'Your Assignment has been deleted.',
                                 'success'
                             )
                         }
