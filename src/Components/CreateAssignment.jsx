@@ -1,4 +1,4 @@
-// import Swal from 'sweetalert2'
+import Swal from 'sweetalert2'
 
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
@@ -22,25 +22,25 @@ const CreateAssignment = () => {
         const newProduct = { title, description, marks, image, difficulty, date, email };
         console.log(newProduct);
 
-        // fetch("https://tech-store-server-42x7j8qao-farhan-novos-projects.vercel.app/product", {
-        //     method: "POST",
-        //     headers: {
-        //         "content-type": "application/json"
-        //     },
-        //     body: JSON.stringify(newProduct)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         console.log(data);
-        //         if (data.acknowledged) {
-        //             Swal.fire({
-        //                 title: 'Success!',
-        //                 text: 'Product Added Successfully',
-        //                 icon: 'success',
-        //                 confirmButtonText: 'Cool'
-        //             })
-        //         }
-        //     })
+        fetch("http://localhost:5000/assignment", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(newProduct)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.acknowledged) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Assignment Created Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                }
+            })
 
 
     }
