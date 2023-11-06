@@ -1,13 +1,14 @@
-// import Swal from 'sweetalert2'
+import Swal from 'sweetalert2'
 
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
 const TakeAssignment = () => {
 
     const assignments = useLoaderData();
+    const navigate = useNavigate();
 
     const { user } = useContext(AuthContext);
     const { id } = useParams();
@@ -29,28 +30,29 @@ const TakeAssignment = () => {
         const obtainMarks = "";
         const feedBack = "";
 
-        const newAssignment = { email, text, pdf, id, title, image, marks, status, name, obtainMarks, feedBack  };
-        console.log(newAssignment);
+        const newSubmission = { email, text, pdf, id, title, image, marks, status, name, obtainMarks, feedBack  };
+        console.log(newSubmission);
 
-        // fetch("http://localhost:5000/assignment", {
-        //     method: "POST",
-        //     headers: {
-        //         "content-type": "application/json"
-        //     },
-        //     body: JSON.stringify(newAssignment)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         console.log(data);
-        //         if (data.acknowledged) {
-        //             Swal.fire({
-        //                 title: 'Success!',
-        //                 text: 'Assignment Created Successfully',
-        //                 icon: 'success',
-        //                 confirmButtonText: 'Cool'
-        //             })
-        //         }
-        //     })
+        fetch("http://localhost:5000/submission", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(newSubmission)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.acknowledged) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Assignment Submitted Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                    navigate(location?.state ? location.state : '/')
+                }
+            })
 
 
     }
