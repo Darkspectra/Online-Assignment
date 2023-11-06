@@ -16,10 +16,10 @@ const GiveMarks = () => {
         event.preventDefault();
         const form = event.target;
 
-        const marks = form.marks.value;
+        const obtainMarks = form.obtainMarks.value;
         const feedBack = form.feedBack.value;
-        const status = "notPending";
-        const newAssignment = { marks, feedBack, status };
+        const status = "Completed";
+        const newAssignment = { obtainMarks, feedBack, status };
         console.log(newAssignment);
 
             fetch(`http://localhost:5000/submission/${_id}`, {
@@ -56,7 +56,7 @@ const GiveMarks = () => {
                 <div className="md:flex mb-8">
                     <div className="md:w-1/2">
                         <p className="text-2xl">Obtain Marks</p>
-                        <input className="input input-bordered w-full" defaultValue={obtainMarks} name="marks" placeholder={marks} />
+                        <input className="input input-bordered w-full" defaultValue={obtainMarks} name="obtainMarks" placeholder={marks} />
                     </div>
                     <div className="md:w-1/2 ml-4">
                         <p className="text-2xl">Feed Back</p>

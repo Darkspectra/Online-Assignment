@@ -20,6 +20,7 @@ import UpdateAssignment from './Components/UpdateAssignment.jsx';
 import TakeAssignment from './Components/TakeAssignment.jsx';
 import SubmittedAssignment from './Components/SubmittedAssignment.jsx';
 import GiveMarks from './Components/GiveMarks.jsx';
+import MyAssignment from './Components/MyAssignment.jsx';
 
 
 
@@ -57,18 +58,23 @@ const router = createBrowserRouter([
       },
       {
         path: "/details/:id/takeAssignment/:id",
-        element: <TakeAssignment></TakeAssignment>,
+        element: <PrivateRoutes><TakeAssignment></TakeAssignment></PrivateRoutes>,
         loader: () => fetch("http://localhost:5000/assignment")
       },
       {
         path: "/submit",
-        element: <SubmittedAssignment></SubmittedAssignment>,
+        element: <PrivateRoutes><SubmittedAssignment></SubmittedAssignment></PrivateRoutes>,
         loader: () => fetch("http://localhost:5000/submission")
       },
       {
         path: "/submit/giveMark/:id",
         element: <PrivateRoutes><GiveMarks></GiveMarks></PrivateRoutes>,
         loader: ({ params }) => fetch(`http://localhost:5000/submission/${params.id}`)
+      },
+      {
+        path: "/myassignment",
+        element: <PrivateRoutes><MyAssignment></MyAssignment></PrivateRoutes>,
+        loader: () => fetch("http://localhost:5000/submission")
       }
     ]
   },
