@@ -1,4 +1,4 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 
 
 const AssignmentDetails = () => {
@@ -15,7 +15,9 @@ const AssignmentDetails = () => {
                     <div>
                         <h1 className="text-5xl font-bold">{card.title}</h1>
                         <p className="py-6">{card.description}</p>
-                        <button className="btn btn-primary text-white">Take Assignment</button>
+                        <Link to={`takeAssignment/${id}`}>
+                            <button className="btn btn-primary text-white">Take Assignment</button>
+                        </Link>
                     </div>
                 </div>
             </div>
