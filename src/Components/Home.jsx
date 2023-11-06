@@ -5,6 +5,8 @@ import AssignFooter from "./AssignFooter";
 import { useLoaderData } from "react-router-dom";
 import AssignmentCard from "./AssignmentCard";
 import { useState } from "react";
+import Question from "./Question";
+import AnotherComponent from "./AnotherComponent";
 
 const Home = () => {
     const [itemPerPage, setItemPerPage] = useState("");
@@ -48,6 +50,9 @@ const Home = () => {
 
                 }
             </div>
+            <h2 className="text-4xl font-bold mx-10 my-24 text-center">FAQ</h2>
+            <Question></Question>
+            <AnotherComponent></AnotherComponent>
             <AssignFooter></AssignFooter>
         </div>
     );

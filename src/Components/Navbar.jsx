@@ -3,6 +3,7 @@ import { useContext } from "react";
 import logo from '../assets/logo.jpg';
 import userDefault from "../assets/user.jpg";
 import { AuthContext } from "../Provider/AuthProvider";
+import DisAssign from "./DisAssign";
 
 
 const NavBar = () => {
@@ -65,6 +66,7 @@ const NavBar = () => {
                     }
                 </div>
             </div>
+            <DisAssign></DisAssign>
         </div>
     );
 };
