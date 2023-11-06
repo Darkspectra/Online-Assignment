@@ -21,6 +21,7 @@ import TakeAssignment from './Components/TakeAssignment.jsx';
 import SubmittedAssignment from './Components/SubmittedAssignment.jsx';
 import GiveMarks from './Components/GiveMarks.jsx';
 import MyAssignment from './Components/MyAssignment.jsx';
+import ErrorPage from './Components/ErrorPage.jsx';
 
 
 
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
