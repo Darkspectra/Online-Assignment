@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 
@@ -9,6 +9,8 @@ const Register = () => {
     const { createUser } = useContext(AuthContext)
     const [registerError, setRegisterError] = useState('')
     const [success, setSuccess] = useState('')
+
+    const navigate = useNavigate();
 
     const handleRegister = e => {
         e.preventDefault();
@@ -39,10 +41,12 @@ const Register = () => {
             .then(result => {
                 console.log(result.user)
                 setSuccess("Registered Successfully")
+                navigate(location?.state ? location.state : '/')
             })
             .catch(error => {
                 console.error(error)
                 setRegisterError(error.message);
+                navigate(location?.state ? location.state : '/')
             })
     }
     return (
@@ -65,6 +69,12 @@ const Register = () => {
                             <span className="label-text text-3xl">Email</span>
                         </label>
                         <input type="email" placeholder="email" name="email" className="input input-bordered" required />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-3xl">Image URL</span>
+                        </label>
+                        <input type="url" placeholder="image" name="image" className="input input-bordered"/>
                     </div>
                     <div className="form-control">
                         <label className="label">
