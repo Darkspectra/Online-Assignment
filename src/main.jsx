@@ -34,7 +34,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/assignment")
+        loader: () => fetch("https://my-assignment-server-five.vercel.app/assignment")
       },
       {
         path: "/create",
@@ -51,32 +51,32 @@ const router = createBrowserRouter([
       {
         path: '/details/:id',
         element:<PrivateRoutes><AssignmentDetails></AssignmentDetails></PrivateRoutes> ,
-        loader: () => fetch("http://localhost:5000/assignment")
+        loader: () => fetch("https://my-assignment-server-five.vercel.app/assignment")
       },
       {
         path: "/updateAssignment/:id",
         element: <PrivateRoutes><UpdateAssignment></UpdateAssignment></PrivateRoutes>,
-        loader: ({ params }) => fetch(`http://localhost:5000/assignment/${params.id}`)
+        loader: ({ params }) => fetch(`https://my-assignment-server-five.vercel.app/assignment/${params.id}`)
       },
       {
         path: "/details/:id/takeAssignment/:id",
         element: <PrivateRoutes><TakeAssignment></TakeAssignment></PrivateRoutes>,
-        loader: () => fetch("http://localhost:5000/assignment")
+        loader: () => fetch("https://my-assignment-server-five.vercel.app/assignment")
       },
       {
         path: "/submit",
         element: <PrivateRoutes><SubmittedAssignment></SubmittedAssignment></PrivateRoutes>,
-        loader: () => fetch("http://localhost:5000/submission")
+        loader: () => fetch("https://my-assignment-server-five.vercel.app/submission")
       },
       {
         path: "/submit/giveMark/:id",
         element: <PrivateRoutes><GiveMarks></GiveMarks></PrivateRoutes>,
-        loader: ({ params }) => fetch(`http://localhost:5000/submission/${params.id}`)
+        loader: ({ params }) => fetch(`https://my-assignment-server-five.vercel.app/submission/${params.id}`)
       },
       {
         path: "/myassignment",
         element: <PrivateRoutes><MyAssignment></MyAssignment></PrivateRoutes>,
-        loader: () => fetch("http://localhost:5000/submission")
+        loader: () => fetch("https://my-assignment-server-five.vercel.app/submission")
       }
     ]
   },

@@ -28,7 +28,7 @@ const UpdateAssignment = () => {
         console.log(newAssignment);
 
         if(user.email === email){
-            fetch(`http://localhost:5000/assignment/${_id}`, {
+            fetch(`https://my-assignment-server-five.vercel.app/assignment/${_id}`, {
                 method: "PUT",
                 headers: {
                     "content-type": "application/json"
@@ -84,7 +84,7 @@ const UpdateAssignment = () => {
             if (result.isConfirmed && user.email===email) {
 
 
-                fetch(`http://localhost:5000/assignment/${_Id}`, {
+                fetch(`https://my-assignment-server-five.vercel.app/assignment/${_Id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())

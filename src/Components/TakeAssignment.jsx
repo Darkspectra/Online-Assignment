@@ -33,7 +33,7 @@ const TakeAssignment = () => {
         const newSubmission = { email, text, pdf, id, title, image, marks, status, name, obtainMarks, feedBack  };
         console.log(newSubmission);
 
-        fetch("http://localhost:5000/submission", {
+        fetch("https://my-assignment-server-five.vercel.app/submission", {
             method: "POST",
             headers: {
                 "content-type": "application/json"

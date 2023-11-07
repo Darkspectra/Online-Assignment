@@ -22,7 +22,7 @@ const GiveMarks = () => {
         const newAssignment = { obtainMarks, feedBack, status };
         console.log(newAssignment);
 
-            fetch(`http://localhost:5000/submission/${_id}`, {
+            fetch(`https://my-assignment-server-five.vercel.app/submission/${_id}`, {
                 method: "PUT",
                 headers: {
                     "content-type": "application/json"
